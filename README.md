@@ -21,6 +21,17 @@
 
 ---
 
+graph LR
+    A[Ethereum Address] --> B{AddressValidator}
+    B -- Valid --> C[DataCollector]
+    B -- Invalid --> D[Error Report]
+    C --> E[Etherscan API v2]
+    E --> F[RiskAssessor]
+    F --> G[ReportGenerator]
+    G --> H[PDF/HTML Report]
+    G --> I[Audit Trail Log]
+
+
 ## 架構
 
 ```
