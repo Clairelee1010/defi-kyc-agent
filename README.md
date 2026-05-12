@@ -20,17 +20,14 @@
 切入點來自在渣打做合規與 Atomic Settlement 研究的實戰經驗——知道那份文件裡每一行是誰在看、看什麼。
 
 ---
-
-graph LR
-    A[Ethereum Address] --> B{AddressValidator}
-    B -- Valid --> C[DataCollector]
-    B -- Invalid --> D[Error Report]
-    C --> E[Etherscan API v2]
-    E --> F[RiskAssessor]
-    F --> G[ReportGenerator]
-    G --> H[PDF/HTML Report]
-    G --> I[Audit Trail Log]
-
+stateDiagram-v2
+    [*] --> AddressValidator
+    AddressValidator --> DataCollector: Success
+    AddressValidator --> [*]: Invalid Format
+    DataCollector --> RiskAssessor: Data Retrieved
+    DataCollector --> RiskAssessor: Empty Wallet (New)
+    RiskAssessor --> ReportGenerator: Risk Scored
+    ReportGenerator --> [*]: Output Generated
 
 ## 架構
 
