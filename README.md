@@ -20,14 +20,6 @@
 切入點來自在渣打做合規與 Atomic Settlement 研究的實戰經驗——知道那份文件裡每一行是誰在看、看什麼。
 
 ---
-stateDiagram-v2
-    [*] --> AddressValidator
-    AddressValidator --> DataCollector: Success
-    AddressValidator --> [*]: Invalid Format
-    DataCollector --> RiskAssessor: Data Retrieved
-    DataCollector --> RiskAssessor: Empty Wallet (New)
-    RiskAssessor --> ReportGenerator: Risk Scored
-    ReportGenerator --> [*]: Output Generated
 
 ## 架構
 
